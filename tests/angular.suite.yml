@@ -5,4 +5,5 @@ modules:
         - AngularJS:
             url: http://davertmik.github.io/angular-demo-app
             browser: firefox
+            host: firefox
         - \Helper\Angular
