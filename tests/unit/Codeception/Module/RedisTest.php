@@ -9,7 +9,8 @@ class RedisTest extends \PHPUnit_Framework_TestCase
      * @var array
      */
     protected static $config = [
-        'database' => 15
+        'database' => 15,
+        'host' => 'redis'
     ];
 
     /**
