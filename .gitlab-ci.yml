@@ -18,7 +18,7 @@ test-cli:
   stage: test
   script:
     - set +e
-    - docker-compose run codeception run cli || EXIT_CODE=$?
+    - docker-compose run codecept run cli || EXIT_CODE=$?
     - set -e
     - cp -r _logs - cp -r /tmp/${ISOLATION}
     - exit EXIT_CODE
@@ -27,7 +27,7 @@ test-unit:
   stage: test
   script:
     - set +e
-    - docker-compose run codeception run unit || EXIT_CODE=$?
+    - docker-compose run codecept run unit || EXIT_CODE=$?
     - set -e
     - cp -r _logs - cp -r /tmp/${ISOLATION}
     - exit EXIT_CODE
@@ -36,7 +36,7 @@ test-coverage:
   stage: test
   script:
     - set +e
-    - docker-compose run codeception run coverage || EXIT_CODE=$?
+    - docker-compose run codecept run coverage || EXIT_CODE=$?
     - set -e
     - cp -r _logs - cp -r /tmp/${ISOLATION}
     - exit EXIT_CODE
@@ -47,7 +47,7 @@ test-web:
     - export COMPOSE_PROJECT_NAME=${ISOLATION}${CI_BUILD_NAME}
     - docker-compose up -d
     - set +e
-    - docker-compose run codeception run web || EXIT_CODE=$?
+    - docker-compose run codecept run web || EXIT_CODE=$?
     - docker-compose kill
     - docker-compose rm -fv --all
     - docker-compose down
@@ -61,7 +61,7 @@ test-angular:
     - export COMPOSE_PROJECT_NAME=${ISOLATION}${CI_BUILD_NAME}
     - docker-compose up -d
     - set +e
-    - docker-compose run codeception run angular || EXIT_CODE=$?
+    - docker-compose run codecept run angular || EXIT_CODE=$?
     - docker-compose kill
     - docker-compose rm -fv --all
     - docker-compose down
