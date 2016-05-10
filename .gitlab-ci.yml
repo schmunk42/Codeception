@@ -20,7 +20,7 @@ test-cli:
     - set +e
     - docker-compose run codecept run cli || EXIT_CODE=$?
     - set -e
-    - cp -r _logs /tmp/${ISOLATION}
+    - cp -r tests/log /tmp/${ISOLATION}
     - exit EXIT_CODE
 
 test-unit:
@@ -34,7 +34,7 @@ test-unit:
     - docker-compose rm -fv --all
     - docker-compose down
     - set -e
-    - cp -r _logs /tmp/${ISOLATION}
+    - cp -r tests/log /tmp/${ISOLATION}
     - exit EXIT_CODE
 
 test-coverage:
@@ -43,7 +43,7 @@ test-coverage:
     - set +e
     - docker-compose run codecept run coverage || EXIT_CODE=$?
     - set -e
-    - cp -r _logs /tmp/${ISOLATION}
+    - cp -r tests/log /tmp/${ISOLATION}
     - exit EXIT_CODE
 
 test-web:
@@ -57,7 +57,7 @@ test-web:
     - docker-compose rm -fv --all
     - docker-compose down
     - set -e
-    - cp -r _logs /tmp/${ISOLATION}
+    - cp -r tests/log /tmp/${ISOLATION}
     - exit EXIT_CODE
 
 test-angular:
@@ -71,7 +71,7 @@ test-angular:
     - docker-compose rm -fv --all
     - docker-compose down
     - set -e
-    - cp -r _logs /tmp/${ISOLATION}
+    - cp -r tests/log /tmp/${ISOLATION}
     - exit EXIT_CODE
 
 
