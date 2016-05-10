@@ -10,6 +10,26 @@ services:
       - ../codeception.yml:/repo/codeception.yml
       - ../src:/repo/src
       - ../shim.php:/repo/shim.php
+      - /repo/vendor
+  web1:
+    build:
+      dockerfile: Dockerfile.web
+      context: .
+    #command: 'sh -c "ln -s /repo/tests/data/app /var/www/html && apache2-foreground"'
+    volumes:
+      - ../tests:/repo/tests
+      - ../shim.php:/repo/shim.php
+      - ../autoload.php:/repo/autoload.php
+      #- ../:/repo
+    volumes_from:
+      - codecept
+    ports:
+      - '11080:80'
+    networks:
+      default:
+        aliases:
+          - web2
+
   redis:
     image: redis:3
   firefox:

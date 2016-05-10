@@ -1,0 +1,5 @@
+FROM php:apache
+
+WORKDIR /repo
+RUN a2enmod rewrite
+RUN rm -rf /var/www/html && ln -s /repo/tests/data/app /var/www/html
