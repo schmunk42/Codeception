@@ -26,8 +26,13 @@ test-cli:
 test-unit:
   stage: test
   script:
+    - export COMPOSE_PROJECT_NAME=${ISOLATION}${CI_BUILD_NAME}
+    - docker-compose up -d
     - set +e
     - docker-compose run codecept run unit || EXIT_CODE=$?
+    - docker-compose kill
+    - docker-compose rm -fv --all
+    - docker-compose down
     - set -e
     - cp -r _logs /tmp/${ISOLATION}
     - exit EXIT_CODE

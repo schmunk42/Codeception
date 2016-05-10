@@ -26,7 +26,7 @@ session_start();
 
 /**
  * you should update these values when debugging,
- * NOTE website URL for the app must be be set to http://localhost:8000/
+ * NOTE website URL for the app must be be set to http://web2:80/
  */
 $fb = new Facebook\Facebook(array(
     'app_id' => '460287924057084',
@@ -40,7 +40,7 @@ $helper = $fb->getRedirectLoginHelper();
 $permissions = [];
 
 //after logging in facebook will redirect us to this callback page
-$callback = 'http://localhost:8000/facebook';
+$callback = 'http://web2:80/facebook';
 
 try {
     $accessToken = $helper->getAccessToken();

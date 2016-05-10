@@ -25,7 +25,7 @@ abstract class TestsForBrowsers extends TestsForWeb
 
     public function testOpenAbsoluteUrls()
     {
-        $this->module->amOnUrl('http://localhost:8000/');
+        $this->module->amOnUrl('http://web2:80/');
         $this->module->see('Welcome to test app!', 'h1');
         $this->module->amOnUrl('http://web1:8000/info');
         $this->module->see('Information', 'h1');
@@ -46,7 +46,7 @@ abstract class TestsForBrowsers extends TestsForWeb
      */
     public function testSiteRootRelativePathsForBasePathWithSubdir()
     {
-        $this->module->_reconfigure(array('url' => 'http://localhost:8000/form'));
+        $this->module->_reconfigure(array('url' => 'http://web2:80/form'));
         $this->module->amOnPage('/relative_siteroot');
         $this->module->seeInCurrentUrl('/form/relative_siteroot');
         $this->module->submitForm('form', array(
