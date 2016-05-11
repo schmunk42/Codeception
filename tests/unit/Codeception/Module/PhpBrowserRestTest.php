@@ -17,7 +17,7 @@ class PhpBrowserRestTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->phpBrowser = new \Codeception\Module\PhpBrowser(make_container());
-        $url = 'http://localhost:8010';
+        $url = 'http://web3:80';
         $this->phpBrowser->_setConfig(array('url' => $url));
         $this->phpBrowser->_initialize();
 
@@ -49,7 +49,7 @@ class PhpBrowserRestTest extends \PHPUnit_Framework_TestCase
 
     public function testSendAbsoluteUrlGet()
     {
-        $this->module->sendGET('http://127.0.0.1:8010/rest/user/');
+        $this->module->sendGET('http://web3:80/rest/user/');
         $this->module->seeResponseCodeIs(200);
     }
 
