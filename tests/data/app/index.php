@@ -1,6 +1,7 @@
 <?php
 if (!headers_sent()) header('Content-Type: text/html; charset=UTF-8');
-require_once __DIR__.'/../../../autoload.php';
+require_once __DIR__.'/../../../vendor/autoload.php';
+### TODO debug --- require_once '/repo/vendor/autoload.php';
 
 if (file_exists(__DIR__ . '/../sandbox/c3.php')) {
     require __DIR__ . '/../sandbox/c3.php';
