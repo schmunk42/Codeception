@@ -29,6 +29,7 @@ services:
       default:
         aliases:
           - web2
+          - web3
 
   redis:
     image: redis:3
