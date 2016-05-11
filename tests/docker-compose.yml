@@ -24,7 +24,7 @@ services:
     volumes_from:
       - codecept
     ports:
-      - '11080:80'
+      - '80'
     networks:
       default:
         aliases:
