@@ -44,7 +44,6 @@ RUN composer install --prefer-dist --optimize-autoloader
 COPY . /repo
 
 ENV PATH /repo:${PATH}
-ENTRYPOINT ["codecept"]
 
 # Prepare host-volume working directory
 RUN mkdir /project
