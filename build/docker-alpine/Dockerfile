@@ -37,19 +37,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
         --filename=composer \
         --install-dir=/usr/local/bin
 RUN composer global require --optimize-autoloader \
-        "hirak/prestissimo"
+        "codeception/codeception"
 
-# Prepare application
-WORKDIR /repo
-
-# Install vendor
-COPY ./composer.json /repo/composer.json
-RUN composer install --prefer-dist --optimize-autoloader
-
-# Add source-code
-COPY . /repo
-
-ENV PATH /repo:${PATH}
+ENV PATH /root/.composer/vendor/bin:${PATH}
 
 # Prepare host-volume working directory
 RUN mkdir /project
